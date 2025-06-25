@@ -67,4 +67,22 @@ suite('Unit Tests', () => {
             )
         })
     })
+    suite('To American', () => {
+        test('We watched the footie match for a while.')
+        test('Paracetamol takes up to an hour to work.')
+        test('First, caramelise the onions.')
+        test('I spent the bank holiday at the funfair.')
+        test('I had a bicky then went to the chippy.')
+        test('I\'ve just got bits and bobs in my bum bag.')
+        test('The car boot sale at Boxted Airfield was called off.')
+        test('Have you met Mrs Kalyani?')
+        test('Prof Joyner of King\'s College, London.')
+        test('Tea time is usually around 4 or 4.30.')
+    })
+    suite('highlight', () => {
+        test('Mangoes are my favorite fruit.')
+        test('I ate yogurt for breakfast.')
+        test('We watched the footie match for a while.')
+        test('Paracetamol takes up to an hour to work.')
+    })
 });
