@@ -38,9 +38,9 @@ class Translator {
         text = text.replace(regex, hl(replacement))
     }
     for (const [replacement, pattern] of Object.entries(americanToBritishTitles)) {
-        const regex = new RegExp(pattern.replace('.', '\\.'))
+        const regex = new RegExp('\\b' + pattern + '\\b')
         text = text.replace(regex, hl(replacement))
-        const regex2 = new RegExp(pc2(pattern).replace('.', '\\.'))
+        const regex2 = new RegExp('\\b' + pc2(pattern) + '\\b')
         text = text.replace(regex2, hl(pc2(replacement)))
     }
     const re = /\d+\.\d+/
