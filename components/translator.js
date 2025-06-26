@@ -28,6 +28,25 @@ class Translator {
     text = text.replace(re, match => hl(match.replace(':', '.')))
      return text;
   }
+  toUS(text) {
+    for (const [pattern, replacement] of Object.entries(britishOnly).reverse()) {
+        const regex = new RegExp('\\b' + pattern + '\\b', 'i')
+        text = text.replace(regex, hl(replacement))
+    }
+    for (const [replacement, pattern] of Object.entries(americanToBritishSpelling)) {
+        const regex = new RegExp('\\b' + pattern + '\\b', 'i')
+        text = text.replace(regex, hl(replacement))
+    }
+    for (const [replacement, pattern] of Object.entries(americanToBritishTitles)) {
+        const regex = new RegExp(pattern.replace('.', '\\.'))
+        text = text.replace(regex, hl(replacement))
+        const regex2 = new RegExp(pc2(pattern).replace('.', '\\.'))
+        text = text.replace(regex2, hl(pc2(replacement)))
+    }
+    const re = /\d+\.\d+/
+    text = text.replace(re, match => hl(match.replace('.', ':')))
+     return text;
+  }
 }
 
 module.exports = Translator;
